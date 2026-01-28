@@ -1,12 +1,14 @@
-package das_experiment.myRealization.demo;
+package dasexperiment.myRealization.demo;
 
-import das_experiment.myRealization.maps.MyCopyOnWriteMap;
+import dasexperiment.myRealization.maps.MySynchronizedMap;
 
-public class MyCopyOnWriteMapDemo {
+import java.util.Map;
+
+public class MySynchronizedMapDemo {
 
     public static void main(String[] args) {
 
-        MyCopyOnWriteMap<Integer, Integer> map = new MyCopyOnWriteMap<>();
+        Map<Integer, Integer> map = new MySynchronizedMap<>();
 
         Thread writer = new Thread(() -> {
             for (int i = 0; i < 10000; i++) {
