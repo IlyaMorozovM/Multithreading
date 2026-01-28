@@ -1,6 +1,6 @@
-package myRealization.demo;
+package das_experiment.myRealization.demo;
 
-import myRealization.maps.MySynchronizedMap;
+import das_experiment.myRealization.maps.MySynchronizedMap;
 
 import java.util.Map;
 

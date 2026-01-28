@@ -1,6 +1,6 @@
-package myRealization.demo;
+package das_experiment.myRealization.demo;
 
-import myRealization.maps.MyCopyOnWriteMap;
+import das_experiment.myRealization.maps.MyCopyOnWriteMap;
 
 public class MyCopyOnWriteMapDemo {
 
