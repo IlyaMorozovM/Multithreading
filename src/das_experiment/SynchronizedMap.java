@@ -1,9 +1,13 @@
+package das_experiment;
+
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
-public class ConcurrentHashMap {
-    public static void main(String[] args) {
+public class SynchronizedMap {
 
-        Map<Integer, Integer> map = new java.util.concurrent.ConcurrentHashMap<>();
+    public static void main(String[] args) {
+        Map<Integer, Integer> map = Collections.synchronizedMap(new HashMap<>());
         Thread writer = new Thread(() -> {
             for (int i = 0; i < 10000; i++) {
                 map.put(i, i);
@@ -14,8 +18,10 @@ public class ConcurrentHashMap {
         Thread reader = new Thread(() -> {
             while (true) {
                 int sum = 0;
-                for (int value : map.values()) {
-                    sum += value;
+                synchronized (map) {
+                    for (int value : map.values()) {
+                        sum += value;
+                    }
                 }
             }
         });
@@ -23,4 +29,5 @@ public class ConcurrentHashMap {
         writer.start();
         reader.start();
     }
+
 }
